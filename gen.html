@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+/*
+ * Block Combinator
+ * https://github.com/ip2k/Block-Combinator
+ * http://seanp2k.com/
+ *
+ * Copyright (c) 2012 seanp2k
+ * Provided under the MIT license
+ * http://www.opensource.org/licenses/mit-license.php
+ *
+ * Date: 2012-01-12 17:12:21 -0500 (Thu, 12 Jan 2012)
+ * Revision: 3
+ */
+-->
+<html>
+  <meta charset="UTF-8">
+  <title>Block Combinator v0.1 by seanp2k</title>
+  <body>
+  <p>
+    This is a custom blocklist generator that allows you to combine multiple blocklists.
+    <br />It supports P2P formatted blocklists in both gzipped and non-gzipped formats.
+    <br />The main motivation behind this is torrent clients that limit you to a single auto-updating blocklist URL.
+    <br />You can find P2P-format blocklists on <a href='http://www.google.com/search?hl=en&q=p2p+blocklist+url'>Google</a>, so don't ask for URLs.
+  </p>
+  <p>
+    <h2>Usage</h2>
+    <ol>
+    <li>Paste URLs of gzip compressed P2P format blocklists here, one per line, then click "Generate". Stretch the box as needed so that each URL is on a separate line.
+    <li>This app will then fetch all the blocklists, ungzip them, combine them, re-gzip them, and present you with a download.
+    <li>All necessary parameters are encoded in the URL, so if you re-download the generated URL, it'll fetch all new updated blocklists
+    <li>Due to the above, you can set the "Enable blocklist" URL in Transmission to the URL of the next page, and enable automatic updates
+  </p>
+  <form action="http://example.com/parse.php" method="GET">
+    <textarea name="urls" cols=80 rows=10>
+    </textarea><br />
+    <input type="submit" value="Generate custom blocklist">
+  </form>
+</html>

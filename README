@@ -1,0 +1,29 @@
+Block Combinator is a simple PHP application with one goal in mind: make URLs that combine multiple blocklists 
+into a nice single gzipped file, and generate these single gzipped files dynamically for each request.
+
+Sure, this approach is slow, but if you're only updating your blocklist once a day or once every 4 hours,
+10-30 seconds isn't too long to wait IMO. These URLs work great in Transmission where you can only have one
+blocklist URL.
+
+The app encodes all the data it needs to combine the BLs in the query string, and was designed to use $_GET
+so that you don't have to visit the site again once you have the URL -- just re-download the URL to refresh
+your blaze.
+
+Need some P2P blocklist URLs? I hear that Google knows where to find some.
+
+The UI is in gen.html . You should only have to use this when you want to generate a new combined blocklist URL.
+Once you generate a URL, you can just issue an HTTP GET request to it ("download it" / "open it up in a browser")
+to trigger a rebuild of the list. It'll send the file to you as a download when it's all set.
+
+==== SYSTEM REQUIREMENTS ====
+1.) A web server (like Apache) with internet access
+2.) PHP 5.2 or higher with zlib support
+3.) Magic Quotes should be disabled in PHP, but this is probably not required.
+
+==== INSTALLING ====
+1.) move or copy gen.html and parse.php into some directory on your webserver that supports PHP.
+2.) edit the URL in gen.html on line 34 to point to the web-facing URI of parse.php. You'll need to change
+'example.com' to the real address that you're hosting this on.
+
+==== USAGE ====
+Follow the instructions in gen.html
